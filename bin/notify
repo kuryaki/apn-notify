@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var pkg = require('../package');
+var apn = require('../lib/apn');
+
+program
+  .version(pkg.version)
+  .usage('[options] token(s)')
+  .option('-k, --key [value]', 'specify key')
+  .option('-p, --pass [value]', 'specify passphrase')
+  .option('-c, --cert [value]', 'specify certificate')
+  .option('-a, --alert [value]', 'specify alert')
+  .option('-s, --sandbox', 'is sandbox')
+  .parse(process.argv);
+
+var options = {
+    production: !program.sandbox
+}
+
+if(program.hasOwnProperty('cert')){ options.cert = program.cert }
+if(program.hasOwnProperty('key')){ options.key = program.key }
+if(program.hasOwnProperty('pass')){ options.passphrase = program.pass }
+
+var tokens = program.args;
+var alert = program.alert;
+
+apn.notify(options, alert, tokens);
+
+// TODO include badge, sound, expiry, payload

@@ -1,0 +1,31 @@
+{
+  "name": "apn-notify",
+  "version": "0.0.1",
+  "description": "APN command line to send pushes",
+  "main": "lib/apn",
+  "bin": {
+    "notify": "bin/notify"
+  },
+  "engines": {
+    "node": ">= 0.12.x"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "APN",
+    "token",
+    "push",
+    "verifier"
+  ],
+  "author": "David Roncancio <david@roncancio.me>",
+  "license": "ISC",
+  "dependencies": {
+    "apn": "^1.7.4",
+    "commander": "^2.8.1"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3"
+  }
+}
