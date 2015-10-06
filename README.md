@@ -5,7 +5,7 @@ CLI tool to send push notifications
 ### Instalation
 
 ```
-  npm install notify
+  npm install apn-notify -g
 ```
 
 ### Usage
